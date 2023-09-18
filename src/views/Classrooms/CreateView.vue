@@ -41,7 +41,7 @@ onBeforeUnmount(store.resetForm)
       <div class="flex gap-2">
         <button type="submit" class="btn btn-primary w-full" :disabled="store.loading">
           <IconSpinner class="animate-spin" v-show="store.loading" />
-          Save vehicle
+          Save Classroom
         </button>
         <RouterLink :to="{ name: 'classrooms.index' }" class="btn btn-secondary">
           Cancel

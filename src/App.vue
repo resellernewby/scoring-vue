@@ -23,6 +23,7 @@ const auth = useAuth()
             <RouterLink class="router-link" :to="{ name: 'classrooms.index' }">
               Classrooms
             </RouterLink>
+            <RouterLink class="router-link" :to="{ name: 'score.index' }"> Scoring </RouterLink>
           </template>
           <template v-else>
             <RouterLink class="router-link" :to="{ name: 'home' }"> Home </RouterLink>

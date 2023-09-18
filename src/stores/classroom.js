@@ -52,10 +52,8 @@ export const useClassroom = defineStore('classroom', () => {
 
     window.axios
       .put(`classrooms/${classroom.id}`, form)
-      .then((response) => {
-        // router.push({ name: 'classrooms.index' })
-        form.name = response.data.name
-        form.is_active = response.data.is_active
+      .then(() => {
+        router.push({ name: 'classrooms.index' })
       })
       .catch((error) => {
         if (error.response.status === 422) {
@@ -68,8 +66,12 @@ export const useClassroom = defineStore('classroom', () => {
   function getClassroom(classroom) {
     window.axios.get(`classrooms/${classroom.id}`).then((response) => {
       form.name = response.data.data.name
-      form.is_active = response.data.data.is_active
+      form.is_active = response.data.data.is_active == 'active' ? true : false
     })
+  }
+
+  function deleteClassroom(classroom) {
+    window.axios.delete(`classrooms/${classroom.id}`).then(getClassrooms())
   }
 
   return {
@@ -81,6 +83,7 @@ export const useClassroom = defineStore('classroom', () => {
     classrooms,
     getClassrooms,
     updateClassroom,
-    getClassroom
+    getClassroom,
+    deleteClassroom
   }
 })

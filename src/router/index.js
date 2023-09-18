@@ -66,6 +66,18 @@ const router = createRouter({
       name: 'classrooms.edit',
       beforeEnter: auth,
       component: () => import('@/views/Classrooms/EditView.vue')
+    },
+    {
+      path: '/score',
+      name: 'score.index',
+      beforeEnter: auth,
+      component: () => import('@/views/Score/IndexView.vue')
+    },
+    {
+      path: '/score/create',
+      name: 'score.create',
+      beforeEnter: auth,
+      component: () => import('@/views/Score/CreateView.vue')
     }
   ]
 })
